@@ -28,7 +28,31 @@ const functionConst = "I'm a block-scoped const";
 }
 show();
     
-console.log(functionVar); // Throws ReferenceError
-console.log(functionLet); // Throws ReferenceError
-console.log(functionConst); // Throws ReferenceError
+// console.log(functionVar); // Throws ReferenceError
+// console.log(functionLet); // Throws ReferenceError
+// console.log(functionConst); // Throws ReferenceError
+
+{
+var taskVar = "I'm a block-scoped var";
+let taskLet = "I'm a block-scoped let";
+const taskConst = "I'm a block-scoped const";
+
+// Try to reassign these variables within the curly braces {}. 
+// Check for any errors that may occur.
+
+// taskVar = "I am a block-scoped var";
+// taskLet = "I am a block-scoped let";
+// taskConst = "I am a block-scoped const"; // TypeError: Attempted to assign to readonly property.
+
+}
+// Try to reassign the same variables outside the block {} and 
+// check if assignment outside the sope of variables where the variables are assigned can be done or not.
+taskVar = "I am a block-scoped var";
+taskLet = "I am a block-scoped let";
+taskConst = "I am a block-scoped const"; 
+
+// Assignment outside the sope of variables where the variables are assigned can be done
+console.log(taskVar); 
+console.log(taskLet); 
+console.log(taskConst); 
 
