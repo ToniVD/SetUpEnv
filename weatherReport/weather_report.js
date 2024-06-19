@@ -23,3 +23,23 @@ function showweatherDetails(event) {
 
 document.getElementById('weatherForm').addEventListener('submit',showweatherDetails );
 
+
+function weatherDetails(event) {
+    event.preventDefault();
+
+    const lat = document.getElementById('lat').value;
+    const lon = document.getElementById('lon').value;
+    const apiKey = '9b0f65f9f2bae87ba4fc289fee63f038';
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+   
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      const latLongInfo = document.getElementById('latLongInfo');
+      latLongInfo.innerHTML = `<h2>Weather in ${data.name}</h2>
+                              <p>Temperature: ${data.main.temp} &#8451;</p>`;
+    })
+}
+
+
+document.getElementById('latLongForm').addEventListener('submit',weatherDetails);
